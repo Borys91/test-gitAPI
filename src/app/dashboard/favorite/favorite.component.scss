@@ -1,0 +1,29 @@
+.wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  .example-card{
+    width: 300px;
+    margin: 20px;
+    &__header{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .content {
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .avatar {
+        width: 100px;
+        border-radius: 50%;
+      }
+      .login {
+      }
+    }
+    &__description {
+      margin-top: 10px;
+    }
+  }
+}
+

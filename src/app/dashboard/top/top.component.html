@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="wrapper__left">
+    <mat-form-field appearance="legacy">
+      <input matInput
+             [formControl]="searchControl"
+             placeholder="Search repo">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <cdk-virtual-scroll-viewport
+            itemSize="30"
+            class="example-viewport"
+            (scrolledIndexChange)="nextPage($event)"
+            >
+      <div *cdkVirtualFor="let item of repos; let i = index" class="example-item">
+        {{i+1}}
+        <span (click)="open(item)">{{item.full_name}}</span>
+        <span >{{item.stargazers_count}}</span>
+        <mat-icon class="star-border" *ngIf="!item.isFavorite; else star">star_border</mat-icon>
+        <ng-template #star><mat-icon class="star">star</mat-icon></ng-template>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+  <div class="wrapper__right" *ngIf="repo">
+    <mat-card class="example-card">
+      <div class="example-card__header">
+        <div>
+          {{repo.full_name}}
+        </div>
+        <div>
+          <div *ngIf="!repo.isFavorite; else star" class="star-border"><mat-icon>star_border</mat-icon></div>
+          <ng-template #star><mat-icon class="star">star</mat-icon></ng-template>
+          <span>{{repo.stargazers_count}}</span>
+        </div>
+      </div>
+      <mat-card-content class="content">
+        <div class="content__body">
+          <img class="avatar" [src]="repo.owner.avatar_url" alt="">
+          <div class="login">
+            {{repo.owner.login}}
+            <img src="assets/icons/github.svg" alt="">
+          </div>
+        </div>
+        <div class="content__description">{{repo.description}}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="addToFavorite(repo)">Add to favorites</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+

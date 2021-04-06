@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span>GitHub Client</span>
+  <div class="wrapper-btn">
+    <button
+            mat-flat-button
+            color="primary"
+            routerLink="/"
+            [ngClass]="{'active': isActive}"
+            (click)="isActive = true"
+            >
+     Top repo
+     </button>
+     <button
+            mat-flat-button
+            color="primary"
+            routerLink="/favorite"
+            [ngClass]="{'active': !isActive}"
+            matBadge={{counter}}
+            matBadgePosition="after"
+            matBadgeColor="accent"
+            (click)="isActive = false">
+      Favorite repo
+     </button>
+  </div>
+</mat-toolbar>

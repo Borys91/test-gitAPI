@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div *ngFor="let repo of repos">
+    <mat-card class="example-card">
+      <div class="example-card__header">
+        <div>
+          {{repo.full_name}}
+        </div>
+        <div>
+          <div *ngIf="!repo.isFavorite; else star"><mat-icon class="star-border">star_border</mat-icon></div>
+          <ng-template #star><mat-icon class="star">star</mat-icon></ng-template>
+          <span>{{repo.stargazers_count}}</span>
+        </div>
+      </div>
+      <mat-card-content class="content">
+        <div class="content__body">
+          <img class="avatar" [src]="repo.owner.avatar_url" alt="">
+          <div class="login">
+            {{repo.owner.login}}
+            <img src="assets/icons/github.svg" alt="">
+          </div>
+        </div>
+        <div class="content__description">{{repo.description}}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="delFavoriteRepo(repo)">Delete from favorites</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="!repos.length">No repositories selected</div>

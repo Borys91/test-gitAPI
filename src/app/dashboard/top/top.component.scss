@@ -1,0 +1,40 @@
+.wrapper{
+  width: 100%;
+  display: flex;
+  &__left,&__rigth{
+    padding: 0 10px;
+    margin-top: 20px;
+    max-width: 50%;
+    width: 50%;
+  }
+  .mat-form-field{
+    width: 100%;
+  }
+  .example-viewport{
+    height: 500px;
+  }
+  .example-card{
+    &__header{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .content {
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .avatar {
+        width: 100px;
+        border-radius: 50%;
+      }
+      .login {
+      }
+    }
+    &__description {
+      margin-top: 10px;
+    }
+  }
+}
+
+
