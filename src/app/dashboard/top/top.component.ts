@@ -18,11 +18,8 @@ export class TopComponent implements OnInit , OnDestroy{
   repo!: Repo;
   unsubscribe = new Subject();
   searchControl!: FormControl;
-  debounce: number = 1000;
+  debounce: number = 1200;
   page:number = 0;
-  // dataSource = new TableVirtualScrollDataSource(this.users);
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  // dataSource = ELEMENT_DATA;
 
   constructor(private usersService: UsersService) { }
 
