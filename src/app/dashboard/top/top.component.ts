@@ -20,9 +20,6 @@ export class TopComponent implements OnInit , OnDestroy{
   searchControl!: FormControl;
   debounce: number = 1000;
   page:number = 0;
-  // dataSource = new TableVirtualScrollDataSource(this.users);
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  // dataSource = ELEMENT_DATA;
 
   constructor(private usersService: UsersService) { }
 
